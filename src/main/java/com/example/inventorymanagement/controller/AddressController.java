@@ -41,8 +41,8 @@ public class AddressController {
 
     @GetMapping
     public ResponseEntity<Object> findAllAddresses() {
-        List<AddressDTO> addresses = addressService.findAllAddresses();
-        return ResponseEntity.status(HttpStatus.OK).body(addresses);
+        List<AddressDTO> addressesDTO = addressService.findAllAddresses();
+        return ResponseEntity.status(HttpStatus.OK).body(addressesDTO);
     }
 
     @DeleteMapping(value = "/{id}")
@@ -50,5 +50,4 @@ public class AddressController {
         addressService.deleteByIdAddress(id);
         return ResponseEntity.status(HttpStatus.OK).body("Address deleted successfully.");
     }
-
 }

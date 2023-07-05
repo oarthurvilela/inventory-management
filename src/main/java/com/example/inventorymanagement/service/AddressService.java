@@ -58,5 +58,4 @@ public class AddressService {
                     "Address with id [%s] not found".formatted(id));
         }
     }
-
 }
