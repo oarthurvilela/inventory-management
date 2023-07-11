@@ -1,7 +1,6 @@
 package com.example.inventorymanagement.controller;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 import javax.validation.Valid;
@@ -16,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.inventorymanagement.model.Product;
+import com.example.inventorymanagement.dto.ProductDTO;
 import com.example.inventorymanagement.service.ProductService;
 
 import lombok.AllArgsConstructor;
@@ -29,38 +28,26 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping
-    public ResponseEntity<Object> saveProduct(@Valid @RequestBody Product product) {
-        productService.saveProduct(product);        
+    public ResponseEntity<Object> saveProduct(@Valid @RequestBody ProductDTO productDTO) {
+        productService.saveProduct(productDTO);        
         return ResponseEntity.status(HttpStatus.CREATED).body("Product created.");
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Object> findByIdProduct(@PathVariable(value = "id") UUID id) {
-        Optional<Product> product = productService.findByIdProduct(id);
-
-        if(!product.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product not found.");
-        }
-        return ResponseEntity.status(HttpStatus.OK).body(product.get());
-
+        ProductDTO productDTO = productService.findByIdProduct(id);
+        return ResponseEntity.status(HttpStatus.OK).body(productDTO);
     }
 
     @GetMapping
     public ResponseEntity<Object> findAllProducts() {
-        List<Product> product = productService.findAllProducts();
-        return ResponseEntity.status(HttpStatus.OK).body(product);
-
+        List<ProductDTO> productsDTO = productService.findAllProducts();
+        return ResponseEntity.status(HttpStatus.OK).body(productsDTO);
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Object> deleteByIdProduct(@PathVariable(value = "id") UUID id) {
-        Optional<Product> product = productService.findByIdProduct(id);
-
-        if(!product.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product not found.");
-        }
         productService.deleteByIdProduct(id);
         return ResponseEntity.status(HttpStatus.OK).body("Product deleted successfully.");
     }
-
 }
