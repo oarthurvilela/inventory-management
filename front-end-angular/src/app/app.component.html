@@ -1,0 +1,20 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" class="menu-side-bar">
+    <div class="menu-side-bar-features">
+      <fa-icon [icon]="faHome"></fa-icon>
+    </div>
+    <div class="menu-side-bar-settings">
+      <fa-icon [icon]="faTools"></fa-icon>
+      <fa-icon [icon]="faUser"></fa-icon>
+      <fa-icon [icon]="faRightFromBracket"></fa-icon>
+
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <fa-icon (click)="sidenav.toggle()" [icon]="faBars" class="menu-icon"></fa-icon>
+    <div class="title">Inventory Management</div>
+
+    <section></section>
+  </mat-sidenav-content>
+</mat-sidenav-container>
