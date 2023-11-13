@@ -1,34 +1,44 @@
-fa-icon{
-    font-size: 30px;
+fa-icon {
+    font-size: 25px;
     padding: 10px;
 }
- .example-container {
+
+fa-icon:hover {
+    cursor: pointer;
+}
+
+.example-container {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
 }
-.menu-side-bar{    
+
+.menu-side-bar {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     padding: 10px;
 }
+
 .menu-side-bar-features {
-   text-align: center;
+    display: flex;
+    flex-direction: column;
 }
-.menu-side-bar-settings{
+
+.menu-side-bar-settings {
     margin-top: 100px;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
-.menu-icon{
+
+.menu-icon {
     position: absolute;
 }
+
 .title {
     font-size: 30px;
     font-weight: bold;
     text-align: center;
     padding: 20px;
 }
-

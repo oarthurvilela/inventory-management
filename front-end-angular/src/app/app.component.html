@@ -1,20 +1,32 @@
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav mode="side" class="menu-side-bar">
     <div class="menu-side-bar-features">
-      <fa-icon [icon]="faHome"></fa-icon>
+      <fa-icon [icon]="faHome" [routerLink]="['/']" mat-raised-button matTooltip="Home"
+        [matTooltipPosition]="'right'"></fa-icon>
+      <fa-icon [icon]="faBox" [routerLink]="['/products']" mat-raised-button matTooltip="Products"
+        [matTooltipPosition]="'right'"></fa-icon>
+      <fa-icon [icon]="faFilter" [routerLink]="['/categories']" mat-raised-button matTooltip="Categories"
+        [matTooltipPosition]="'right'"></fa-icon>
+      <fa-icon [icon]="faTruck" [routerLink]="['/suppliers']" mat-raised-button matTooltip="Suppliers"
+        [matTooltipPosition]="'right'"></fa-icon>
+      <fa-icon [icon]="faLocationDot" [routerLink]="['/addresses']" mat-raised-button matTooltip="Addresses"
+        [matTooltipPosition]="'right'"></fa-icon>
     </div>
     <div class="menu-side-bar-settings">
-      <fa-icon [icon]="faTools"></fa-icon>
-      <fa-icon [icon]="faUser"></fa-icon>
-      <fa-icon [icon]="faRightFromBracket"></fa-icon>
-
+      <fa-icon [icon]="faGear" mat-raised-button matTooltip="Settings" [matTooltipPosition]="'right'"></fa-icon>
+      <fa-icon [icon]="faUser" mat-raised-button matTooltip="User" [matTooltipPosition]="'right'"></fa-icon>
+      <fa-icon [icon]="faRightFromBracket" mat-raised-button matTooltip="Logout"
+        [matTooltipPosition]="'right'"></fa-icon>
     </div>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <fa-icon (click)="sidenav.toggle()" [icon]="faBars" class="menu-icon"></fa-icon>
+    <fa-icon (click)="sidenav.toggle()" [icon]="faBars" class="menu-icon" mat-raised-button matTooltip="Menu"
+      [matTooltipPosition]="'right'"></fa-icon>
     <div class="title">Inventory Management</div>
 
-    <section></section>
+    <section>
+      <router-outlet></router-outlet>
+    </section>
   </mat-sidenav-content>
 </mat-sidenav-container>

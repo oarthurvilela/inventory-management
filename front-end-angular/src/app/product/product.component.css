@@ -1,0 +1,30 @@
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+.add-search-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px 20px 50px;
+}
+
+.add-search-item fa-icon {
+    font-size: 25px;
+}
+
+.container-table{
+    margin: 0 50px;
+}
+
+fa-icon {
+    font-size: 20px;
+    padding: 10px;
+}
+
+fa-icon:hover {
+    cursor: pointer;
+}
